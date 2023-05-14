@@ -31,4 +31,4 @@ BasketGood.belongsTo(Basket);
 Good.hasMany(BasketGood);
 BasketGood.belongsTo(Good);
 
-export default {User,Basket,Good,BasketGood};
+export {User,Basket,Good,BasketGood};
