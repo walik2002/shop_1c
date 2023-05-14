@@ -1,12 +1,12 @@
 import {Sequelize} from "sequelize";
 import mysql from 'mysql2';
 export default new Sequelize(
-    'shop_1c',
-    'root',
-    'root',
+    process.env.DB_NAME ,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
     {
         dialect: "mysql",
-        host: 'localhost',
-        port: 3306,
+        host: process.env.DB_HOST,
+        port: process.env.DB_PORT,
     }
 )
