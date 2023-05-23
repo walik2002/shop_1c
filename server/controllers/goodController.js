@@ -1,4 +1,5 @@
 import {Good} from "../models/models.js"
+import {fetchGoods, fetchOneGood} from "../http/goodsAPI.js";
 class GoodController{
     async create(req,res){
         const {name,price} = req.body;
@@ -7,14 +8,14 @@ class GoodController{
     }
 
     async getAll(req,res){
-        const goods = await Good.findAll();
+        const goods = await fetchGoods();
 
         return res.json(goods);
     }
 
     async getOne(req,res){
         const {id} = req.params
-        const good = await Good.findOne({where: {id}})
+        const good = await fetchOneGood(id);
 
         return res.json(good);
     }

@@ -28,10 +28,10 @@ const GoodItem = ({good}) => {
             <Card style={{cursor:"pointer"}} border = "dark" className="mt-3" onClick={()=>navigate("good" + "/" + good.id)}>
                 <Card.Body>
                     <Card.Title>
-                        Товар: {good.name}
+                        Товар: {good.Наименование}
                     </Card.Title>
                    <Card.Text>
-                       Цена: {good.price}
+                       Цена: {good.Цена}
                    </Card.Text>
                     <Button variant="outline-success" onClick={(e) => {e.stopPropagation(); handleAddToBasket(good.id)}}>Добавить в корзину</Button>
                 </Card.Body>

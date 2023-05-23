@@ -4,7 +4,7 @@ import authMiddleware from "../middleware/authMiddleware.js";
 
 const router = new Router();
 
-router.post('/add',basketController.addToBasket);
-router.post('/delete',basketController.deleteFromBasket);
-router.post('/',basketController.getBasketGoods);
+router.post('/add',authMiddleware,basketController.addToBasket);
+router.post('/delete',authMiddleware,basketController.deleteFromBasket);
+router.post('/',authMiddleware,basketController.getBasketGoods);
 export default router;

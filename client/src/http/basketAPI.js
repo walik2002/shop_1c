@@ -1,10 +1,10 @@
-import {$host} from "./index";
+import {$authHost, $host} from "./index";
 
 const API_URL = "http://localhost:3001";
 
 async function getBasketGoods(userId) {
     try {
-        const {data} = await $host.post("/api/basket",{userId:userId});
+        const {data} = await $authHost.post("/api/basket",{userId:userId});
         return data;
     } catch (error) {
         console.log(error);
@@ -14,7 +14,7 @@ async function getBasketGoods(userId) {
 
 async function addGoodToBasket(userId, goodId) {
     try {
-        const {data} = await $host.post("/api/basket/add",{goodId , userId})
+        const {data} = await $authHost.post("/api/basket/add",{goodId , userId})
         return data;
     } catch (error) {
         console.log(error);
@@ -24,7 +24,7 @@ async function addGoodToBasket(userId, goodId) {
 
 async function removeGoodFromBasket(userId, basketGoodId) {
     try {
-        const {data} = await $host.post("/api/basket/delete",{goodId:basketGoodId , userId})
+        const {data} = await $authHost.post("/api/basket/delete",{goodId:basketGoodId , userId})
         return data;
     } catch (error) {
         console.log(error);

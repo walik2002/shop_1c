@@ -1,4 +1,5 @@
 import {Basket, BasketGood, Good, User} from "../models/models.js";
+import {fetchOneGood} from "../http/goodsAPI.js";
 
 class BasketController {
     async  addToBasket(req, res) {
@@ -10,7 +11,16 @@ class BasketController {
             const basket = user.basket;
 
             // Создать новую запись в таблице basket_goods для связи товара с корзиной
-            await BasketGood.create({ basketId: basket.id, goodId });
+            const good = await fetchOneGood(goodId);
+            await BasketGood.create({
+                basketId: basket.id,
+                goodId: good.id,
+                name: good.Наименование,
+                count: good.Количество,
+                measureUnit: good.ЕдиницаИзмерения,
+                price: good.Цена,
+                priceNDS: good.ВсегоСНДС
+            });
 
             // Вернуть успешный ответ
             res.status(200).json({ message: "Товар успешно добавлен в корзину" });
@@ -29,7 +39,7 @@ class BasketController {
             const basket = user.basket;
 
             // Получить все записи в таблице basket_goods, связанные с корзиной пользователя
-            const basketGoods = await BasketGood.findAll({ where: { basketId: basket.id }, include: Good });
+            const basketGoods = await BasketGood.findAll({ where: { basketId: basket.id }});
 
             // Вернуть список товаров в корзине
             res.status(200).json(basketGoods);
