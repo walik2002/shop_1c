@@ -1,9 +1,10 @@
 import React, {useContext} from 'react';
 import {Context} from "../index";
-import {Button, Container, Nav, Navbar} from "react-bootstrap";
-import {BASKET_ROUTE, LOGIN_ROUTE, SHOP_ROUTE} from "../utils/consts";
+import {Button, Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
+import {ADMIN_ROUTE, CONTACTS_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, SCHEDULE_ROUTE, USER_BOOKINGS} from "../utils/consts";
 import {observer} from "mobx-react-lite";
 import {useNavigate,NavLink} from "react-router-dom";
+import './css/NavBar.css';
 
 const NavBar = observer (() => {
 
@@ -11,6 +12,7 @@ const NavBar = observer (() => {
     const navigate = useNavigate();
 
     const logOut = () =>{
+        console.log({...user.user});
         user.setUser({});
         user.setIsAuth(false);
         localStorage.clear();
@@ -19,16 +21,31 @@ const NavBar = observer (() => {
     return (
         <Navbar bg="dark" variant="dark">
             <Container>
-                <NavLink style={{color:"white"}} to = {SHOP_ROUTE}>Онлайн Магазин</NavLink>
+                <Container>
+                    <NavLink className="link" style={{color:"white"}} to = {MAIN_ROUTE}>Главная</NavLink>
+                    <NavLink className="link" style={{color:"white"}} to = {SCHEDULE_ROUTE}>Расписание</NavLink>
+                    <NavLink className="link" style={{color:"white"}} to = {CONTACTS_ROUTE}>Контакты</NavLink>
+                </Container>
+
                 {user.isAuth ?
                     <Nav style={{color:"white"}} className="ml-auto">
-                        <Button variant={"outline-light"} onClick={()=>navigate(BASKET_ROUTE)}>Корзина</Button>
-                        <Button variant={"outline-light"}>Админ панель</Button>
-                        <Button className="ml-2"  variant={"outline-light"} onClick={() => logOut()}>Выйти</Button>
+                        <NavDropdown title={user.user.firstName + " " + user.user.lastName} className="button"  variant={"outline-light"}>
+
+                            {
+                                user.user.role ==="ADMIN"
+                                    ?<NavDropdown.Item onClick={()=>navigate(ADMIN_ROUTE)}>Админ панель</NavDropdown.Item>
+                                    :''
+                            }
+
+                            <NavDropdown.Item onClick={()=>navigate(USER_BOOKINGS)}>Мои брони</NavDropdown.Item>
+                            <NavDropdown.Item>Профиль</NavDropdown.Item>
+                            <NavDropdown.Item onClick={() => logOut()}>Выйти</NavDropdown.Item>
+                        </NavDropdown>
+
                     </Nav>
                     :
                     <Nav style={{color:"white"}} className="ml-auto">
-                        <Button variant={"outline-light"} onClick={() => navigate(LOGIN_ROUTE)}>Авторизация</Button>
+                        <Button className="button"  variant={"outline-light"} onClick={() => navigate(LOGIN_ROUTE)}>Авторизация</Button>
                     </Nav>
                 }
             </Container>

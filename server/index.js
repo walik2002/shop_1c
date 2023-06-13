@@ -5,6 +5,7 @@ import sequelize from './db.js';
 import router from "./routes/index.js";
 import cors from 'cors';
 import errorHandler from "./middleware/ErrorHandlingMiddleware.js";
+import {Workout} from "./models/models.js";
 
 
 
@@ -30,3 +31,4 @@ async function start (){
 }
 
 start();
+

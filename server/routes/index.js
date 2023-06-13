@@ -1,13 +1,16 @@
 import {Router} from "express";
-import goodRouter from "./goodRouter.js";
 import userRouter from "./userRouter.js";
-import basketRouter from "./basketRouter.js";
-import orderRouter from "./orderRouter.js";
+import workoutRouter from "./workoutRouter.js";
+import trainerRouter from "./trainerRouter.js";
+import scheduleRouter from "./scheduleRouter.js";
+import bookingRouter from "./bookingRouter.js";
+
 
 const router = new Router();
 
 router.use('/user',userRouter);
-router.use('/goods',goodRouter);
-router.use('/basket',basketRouter)
-router.use('/orders',orderRouter);
+router.use('/workout',workoutRouter);
+router.use('/trainer',trainerRouter);
+router.use('/schedule', scheduleRouter);
+router.use('/booking',bookingRouter)
 export default router;

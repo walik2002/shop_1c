@@ -1,0 +1,194 @@
+.button-controllers{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+    max-width: 1200px;
+}
+.button-controllers h2{
+    margin: 0;
+    font-family: monospace;
+    font-weight: bold;
+}
+.button-controllers button{
+    background-color: blueviolet;
+    padding: 20px 10px;
+}
+.button-controllers button:hover{
+    background-color: #4f1583;
+}
+.button-controllers button span{
+    display: block;
+    height: 3px;
+    width: 40px;
+    background-color: white;
+    position: relative;
+    border-radius: 1px;
+}
+
+.button-controllers .btn-arrow-left span::before{
+    position: absolute;
+    top: 5px;
+    left: -1px;
+    display: block;
+    content: '';
+    height: 3px;
+    width: 20px;
+    background-color: white;
+    transform: rotate(30deg);
+    border-radius: 2px;
+}
+
+.button-controllers .btn-arrow-left span::after{
+    position: absolute;
+    top: -5px;
+    left: -1px;
+    display: block;
+    content: '';
+    height: 3px;
+    width: 20px;
+    background-color: white;
+    transform: rotate(330deg);
+    border-radius: 2px;
+}
+.button-controllers .btn-arrow-right span::before{
+    position: absolute;
+    top: -5px;
+    right: -1px;
+    display: block;
+    content: '';
+    height: 3px;
+    width: 20px;
+    background-color: white;
+    transform: rotate(210deg);
+    border-radius: 2px;
+}
+.button-controllers .btn-arrow-right span::after{
+    position: absolute;
+    top: 5px;
+    right: -1px;
+    display: block;
+    content: '';
+    height: 3px;
+    width: 20px;
+    background-color: white;
+    transform: rotate(330deg);
+    border-radius: 2px;
+}
+table.calendar{
+    border: 1px solid silver;
+    margin:10px auto 50px;
+    max-width: 1200px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+table.calendar th{
+    padding: 5px 0;
+    line-height: 16px;
+    font-family: monospace;
+    text-align: center;
+    font-weight: 400;
+    border: 1px solid silver;
+}
+
+.time-line{
+    border-bottom: 1px solid silver;
+}
+.time-line:nth-child(2n){
+    background-color: #eaeeee;
+}
+
+table.calendar td{
+    padding: 0;
+    height: 113px;
+    min-height: 113px;
+}
+table.calendar td:not(:first-child){
+    min-width: 100px;
+}
+table.calendar tr td:first-of-type{
+    font-family: "Tempus Sans ITC",sans-serif;
+    font-weight: 600;
+    width: 60px;
+    text-align: center;
+    border-right: 1px solid silver;
+}
+
+.calendar-cell-admin:hover{
+    background-color: #f1e8e8;
+}
+.btn-close{
+    position: absolute;
+    right: 20px;
+}
+.modal-title{
+    font-family: monospace;
+    font-size: 25px;
+    margin: auto;
+}
+
+.modal-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+}
+.info{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 10px 20px;
+    border: 1px solid silver;
+    border-radius: 20px;
+    margin: 10px auto;
+}
+.modal-description{
+    width: 100%;
+}
+.modal-time{
+    align-self: flex-end;
+    color: #a2a3a3;
+}
+
+.modal-trainer{
+    font-size: 20px;
+}
+
+.modal-available-spots{
+    margin-top: 20px;
+    font-size: 18px;
+}
+.modal-button-container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+button{
+    padding: 7px 14px;
+    margin-top: 20px;
+    background-color: rgba(65, 163, 10, 0.76);
+    color: white;
+    border: none;
+    border-radius: 15px;
+}
+
+.modal-button-container button:hover{
+    background-color: rgba(39, 93, 7, 0.76)
+}
+
+.discard-btn{
+    background-color: #ab1111;
+    margin-right: 10px;
+}
+.modal-button-container .discard-btn:hover{
+    background-color: #590c0c;
+}
+.book-btn-disabled{
+    background-color: rgba(39, 93, 7, 0.76)
+}
+.book-btn-disabled:hover{
+    background-color: rgba(39, 93, 7, 0.76)
+}

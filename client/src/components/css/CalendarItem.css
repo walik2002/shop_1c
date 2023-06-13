@@ -1,0 +1,31 @@
+.calendar-item{
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 150px;
+    width: 95%;
+    margin: 5px auto;
+    border-radius: 10px;
+    border-left: 5px solid blueviolet;
+    font-family: monospace;
+    background-color: white;
+}
+.calendar-item:hover{
+    cursor: pointer;
+}
+.time{
+    font-family: "Tempus Sans ITC",sans-serif;
+    font-weight: 600;
+}
+
+.title{
+    font-size: 15px;
+    font-weight: 600;
+}
+.trainer-name{
+    font-size: 14px;
+    font-style: italic;
+}
+
+.price{
+    font-size: 12px;
+}

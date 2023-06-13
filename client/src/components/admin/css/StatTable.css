@@ -1,0 +1,25 @@
+.stat-table-controls{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+.stat-table-controls .title{
+    font-size: 24px;
+    font-weight: 400;
+    margin-right: 10px;
+}
+.stat-table-controls .select{
+    min-width: 150px;
+    margin-right: 10px;
+}
+
+.stat-table table {
+    margin: 20px auto;
+}
+
+.stat-table table th{
+    border:1px solid black;
+}
+.stat-table table td{
+    border:1px solid black;
+}

@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {Button, Card, Container, Form} from "react-bootstrap";
-import {LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "../utils/consts";
+import {LOGIN_ROUTE, REGISTRATION_ROUTE, MAIN_ROUTE} from "../utils/consts";
 import {useLocation, NavLink, useNavigate} from "react-router-dom";
 import {login, registration} from "../http/userApi";
 import jwt_decode from "jwt-decode";
@@ -16,6 +16,9 @@ const Auth = observer( () => {
 
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+    const [firstName,setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [phone,setPhone] = useState("");
 
     const click = async ()=>{
         try{
@@ -24,13 +27,13 @@ const Auth = observer( () => {
                 data = await  login (email, password);
             }
             else {
-                data = await  registration(email,password);
+                data = await  registration(email,password, firstName,lastName,phone);
             }
 
             user.setUser(data);
             user.setIsAuth(true);
 
-            navigate(SHOP_ROUTE);
+            navigate(MAIN_ROUTE);
         }
         catch (e){
             alert(e.response.data.message)
@@ -56,6 +59,39 @@ const Auth = observer( () => {
                                   onChange={e=> setPassword(e.target.value)}
                                   type="password"
                     />
+
+                    {
+                        !isLogin
+                            ?
+                            <Form.Control placeholder="Введите ваше имя..."
+                                          className="mt-3"
+                                          value={firstName}
+                                          onChange={e=> setFirstName(e.target.value)}/>
+                            :
+                            ''
+                    }
+                    {
+                        !isLogin
+                            ?
+                            <Form.Control placeholder="Введите вашу фамилию..."
+                                          className="mt-3"
+                                          value={lastName}
+                                          onChange={e=> setLastName(e.target.value)}/>
+                            :
+                            ''
+
+                    }
+                    {
+                        !isLogin
+                            ?
+                            <Form.Control placeholder="Введите ваш номер телефона..."
+                                          className="mt-3"
+                                          value={phone}
+                                          onChange={e=> setPhone(e.target.value)}/>
+                            :
+                            ''
+
+                    }
                     <Container style={{padding: 0}} className="d-flex justify-content-between flex-row mt-3">
                         {isLogin
                             ?

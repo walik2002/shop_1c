@@ -1,0 +1,61 @@
+.admin-control{
+    max-width: 1200px;
+    width: 100%;
+    margin: 10px auto;
+}
+.admin-control-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.admin-control-header {
+    margin: 0 0 10px;
+}
+
+.admin-control-header h2{
+    margin: 0;
+    padding: 0;
+    line-height: 1px;
+}
+
+.admin-control-header-controls{
+    display: flex;
+}
+
+.admin-control-header-controls button{
+    margin: 0;
+}
+.admin-control-header-controls input{
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 10px;
+    padding: 0 5px;
+}
+.admin-control table{
+    width: 100%;
+}
+.admin-control table tr:nth-child(2n){
+    background-color: #f1f1f1;
+}
+.admin-control.stat table tr:nth-child(2n){
+    background-color: white;
+}
+
+.admin-control table th,
+.admin-control table td{
+    border: 1px solid silver;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.td-control{
+    text-decoration: underline;
+    color: blue;
+}
+.td-control:hover{
+    cursor: pointer;
+    color: darkblue;
+}

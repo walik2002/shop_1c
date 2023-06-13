@@ -1,0 +1,16 @@
+.booking-header{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.booking-item-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px 40px;
+}
+
+.booking-item-body button{
+    max-width: 200px;
+    align-self: flex-end;
+}
